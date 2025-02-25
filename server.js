@@ -54,9 +54,11 @@ const plan = require("./routes/plan");
 app.use("/api/plan", plan);
 
 // Serve static files
+//app.use(express.static(path.resolve(__dirname, "./routes/web.js")));
 app.use(express.static(path.resolve(__dirname, "./client/public")));
 
 app.get("*", (request, response) => {
+  //response.sendFile(path.resolve(__dirname, "./routes/web.js"));
   response.sendFile(path.resolve(__dirname, "./client/public", "index.html"));
 });
 
